@@ -1,4 +1,4 @@
-if type -P 'subl'
+if type -P 'subl' > /dev/null
   set -gx EDITOR 'subl -w'
 else
   set -gx EDITOR 'nano'
