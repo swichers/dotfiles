@@ -15,7 +15,7 @@
 	last = log -n1 --pretty=oneline --abbrev-commit
 	lg = !git tree --pretty=detailtree
 [core]
-	excludesfile = /Users/steven.wichers/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	whitespace = space-before-tab,tab-in-indent,trailing-space,cr-at-eol
 	sharedrepository = 1
 	filemode = false
@@ -39,4 +39,4 @@
 [push]
 	default = simple
 [include]
-	path = /Users/steven.wichers/.gitconfig_local
+	path = ~/.gitconfig_local
