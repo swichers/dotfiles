@@ -1,0 +1,10 @@
+*~
+.DS_Store
+htdocs/FirePHPCore
+htdocs/sites/all/modules/devel
+*.scssc
+*.bak
+*.tmp
+*.old
+*.orig
+*.rej

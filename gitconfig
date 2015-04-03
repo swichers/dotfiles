@@ -1,0 +1,42 @@
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	st = status -s
+	df = diff
+	br = branch
+	ci = commit
+	rb = rebase
+	unstage = reset HEAD
+	undo = reset --soft HEAD^
+	setup = !repo-setup
+	tree = log --graph --pretty=oneline --abbrev-commit
+	difflog = log -p
+	last = log -n1 --pretty=oneline --abbrev-commit
+	lg = !git tree --pretty=detailtree
+[core]
+	excludesfile = /Users/steven.wichers/.gitignore_global
+	whitespace = space-before-tab,tab-in-indent,trailing-space,cr-at-eol
+	sharedrepository = 1
+	filemode = false
+[diff]
+	renames = copies
+[user]
+	name = Steven Wichers
+[log]
+	decorate = short
+	date = relative
+	showroot = true
+	commit = abbrev
+[branch]
+	autosetupmerge = true
+[receive]
+	denyNonFastForwards = true
+[pretty]
+	detailtree = %C(yellow)%h %Cgreen%cr %C(bold blue)%cN%Creset -%C(yellow)%d%Creset %s
+	lprintfoutput = %h%x00%cd%x00%s%x00%an%x00%d
+	lgprintfoutput = %x00%h%x00%s%x00%cd%x00%an%x00%d
+[push]
+	default = simple
+[include]
+	path = /Users/steven.wichers/.gitconfig_local
