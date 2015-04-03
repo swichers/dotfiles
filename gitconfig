@@ -9,7 +9,6 @@
 	rb = rebase
 	unstage = reset HEAD
 	undo = reset --soft HEAD^
-	setup = !repo-setup
 	tree = log --graph --pretty=oneline --abbrev-commit
 	difflog = log -p
 	last = log -n1 --pretty=oneline --abbrev-commit
