@@ -1,0 +1,53 @@
+"*":
+  "exception-reporting":
+    userId: "eaf0b307-17a4-31b9-f9ff-333f83d90b57"
+  welcome:
+    showOnStartup: false
+  core:
+    disabledPackages: [
+      "language-clojure"
+      "language-c"
+      "language-csharp"
+      "language-go"
+      "language-java"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-python"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-toml"
+      "metrics"
+      "release-notes"
+      "timecop"
+      "welcome"
+      "autosave"
+      "language-drupal"
+      "autocomplete-atom-api"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
+    fontSize: 12
+    showInvisibles: true
+  drupal:
+    fileTypesPhp: "module,install,inc,test"
+  minimap:
+    plugins:
+      selection: true
+      "highlight-selected": true
+  "autocomplete-plus":
+    backspaceTriggersAutocomplete: true
+    confirmCompletion: "enter"
+    defaultProvider: "Fuzzy"
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  "save-session":
+    dataSaveFolder: "/Users/Steven.Wichers/.atom/packages/save-session/projects"
+  docblockr:
+    align_tags: "shallow"
+    lower_case_primitives: true
+    per_section_indent: true
+    short_primitives: true
+    spacer_between_sections: true
