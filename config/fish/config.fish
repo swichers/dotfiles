@@ -1,5 +1,5 @@
-if type -P 'subl' > /dev/null
-  set -gx EDITOR 'subl -w'
+if type -P 'atom' > /dev/null
+  set -gx EDITOR 'atom'
 else
   set -gx EDITOR 'nano'
 end

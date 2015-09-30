@@ -24,6 +24,11 @@
       "autosave"
       "language-drupal"
       "autocomplete-atom-api"
+      "achievements"
+    ]
+    themes: [
+      "seti-ui"
+      "seti-syntax"
     ]
   editor:
     invisibles: {}
@@ -37,6 +42,7 @@
     plugins:
       selection: true
       "highlight-selected": true
+      pigments: true
   "autocomplete-plus":
     backspaceTriggersAutocomplete: true
     confirmCompletion: "enter"
