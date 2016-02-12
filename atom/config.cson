@@ -1,8 +1,45 @@
 "*":
-  "exception-reporting":
-    userId: "eaf0b307-17a4-31b9-f9ff-333f83d90b57"
-  welcome:
-    showOnStartup: false
+  achievements: {}
+  "activate-power-mode":
+    particles:
+      size:
+        max: 8
+      spawnCount:
+        max: 25
+      totalCount: {}
+    screenShake:
+      enabled: false
+  "atom-beautify":
+    _loggerLevel: "error"
+    analytics: false
+    css_align_assignments: true
+    css_convert_quotes: "single"
+    css_newline_between_rules: true
+    css_no_lead_zero: true
+    css_selector_separator_newline: true
+    html_end_with_newline: true
+    html_indent_inner_html: true
+    js_brace_style: "end-expand"
+    js_break_chained_methods: true
+    js_end_with_comma: true
+    js_end_with_newline: true
+    js_jslint_happy: true
+    js_max_preserve_newlines: 3
+    js_space_after_anon_function: true
+    js_space_in_paren: true
+    js_wrap_line_length: 80
+  "atom-typescript": {}
+  "autocomplete-plus":
+    backspaceTriggersAutocomplete: true
+    confirmCompletion: "enter"
+    defaultProvider: "Fuzzy"
+  "block-cursor":
+    global:
+      blinkOff:
+        borderStyle: "i-beam"
+      blinkOn:
+        borderStyle: "underline"
+  "color-tabs": {}
   core:
     disabledPackages: [
       "language-clojure"
@@ -24,36 +61,70 @@
       "autosave"
       "language-drupal"
       "autocomplete-atom-api"
-      "achievements"
+      "about"
+      "archive-view"
+      "background-tips"
+      "deprecation-cop"
+      "exception-reporting"
+      "language-make"
+      "open-on-github"
+      "package-generator"
+      "styleguide"
+      "save-session"
+      "markdown-preview"
+      "link"
+      "symbols-view"
     ]
+    projectHome: "/Users/stevenwicher/Projects/"
     themes: [
       "seti-ui"
       "seti-syntax"
     ]
-  editor:
-    invisibles: {}
-    showIndentGuide: true
-    softWrap: true
-    fontSize: 12
-    showInvisibles: true
-  drupal:
-    fileTypesPhp: "module,install,inc,test"
-  minimap:
-    plugins:
-      selection: true
-      "highlight-selected": true
-      pigments: true
-  "autocomplete-plus":
-    backspaceTriggersAutocomplete: true
-    confirmCompletion: "enter"
-    defaultProvider: "Fuzzy"
-  whitespace:
-    ignoreWhitespaceOnCurrentLine: false
-  "save-session":
-    dataSaveFolder: "/Users/Steven.Wichers/.atom/packages/save-session/projects"
   docblockr:
     align_tags: "shallow"
     lower_case_primitives: true
     per_section_indent: true
     short_primitives: true
     spacer_between_sections: true
+  drupal:
+    fileTypesPhp: "module,install,inc,test"
+  editor:
+    fontSize: 13
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+  "exception-reporting":
+    userId: "eaf0b307-17a4-31b9-f9ff-333f83d90b57"
+  "file-icons": {}
+  "highlight-line": {}
+  jshint:
+    validateOnlyOnSave: true
+  jumpy:
+    highContrast: true
+  linter:
+    errorPanelHeight: 213
+    gutterPosition: "Left"
+    lintOnFly: false
+    showErrorPanel: false
+    showErrorTabProject: false
+    statusIconScope: "File"
+  "linter-phpcs":
+    codeStandardOrConfigFile: "Drupal"
+  "linter-phpmd":
+    projectRules: true
+  minimap:
+    plugins:
+      "highlight-selected": true
+      pigments: true
+      selection: true
+  "save-session":
+    dataSaveFolder: "/Users/Steven.Wichers/.atom/packages/save-session/projects"
+  "spell-check": {}
+  "terminal-plus":
+    core: {}
+    style: {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
