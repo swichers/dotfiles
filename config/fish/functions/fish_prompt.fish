@@ -30,7 +30,7 @@ end
 
 ## Show user if not default
 function show_user -d "Show user"
-  if [ "$USER" != $default_user -o -n "$SSH_CLIENT" ]
+  if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
     set -l host (hostname -s)
     set -l who (whoami)
     prompt_segment normal yellow " $who"
