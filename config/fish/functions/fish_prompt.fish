@@ -41,7 +41,7 @@ function show_user -d "Show user"
       prompt_segment normal green "$host "
       set pad ""
     end
-    end
+  end
 end
 
 # Show directory
@@ -60,7 +60,7 @@ function show_prompt -d "Shows prompt with cue for current priv"
   else
     prompt_segment normal white " \$ "
     end
-  
+
   set_color normal
 end
 
