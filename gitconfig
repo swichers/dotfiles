@@ -19,6 +19,7 @@
 	sharedrepository = 1
 	filemode = false
 	editor = nano
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [diff]
 	renames = copies
 [user]
