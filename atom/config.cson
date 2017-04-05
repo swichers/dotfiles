@@ -10,24 +10,31 @@
     screenShake:
       enabled: false
   "atom-beautify":
-    _loggerLevel: "error"
-    analytics: false
-    css_align_assignments: true
-    css_convert_quotes: "single"
-    css_newline_between_rules: true
-    css_no_lead_zero: true
-    css_selector_separator_newline: true
-    html_end_with_newline: true
-    html_indent_inner_html: true
-    js_brace_style: "end-expand"
-    js_break_chained_methods: true
-    js_end_with_comma: true
-    js_end_with_newline: true
-    js_jslint_happy: true
-    js_max_preserve_newlines: 3
-    js_space_after_anon_function: true
-    js_space_in_paren: true
-    js_wrap_line_length: 80
+    css:
+      align_assignments: true
+      convert_quotes: "single"
+      newline_between_rules: true
+      no_lead_zero: true
+      selector_separator_newline: true
+    general:
+      _analyticsUserId: "e5a9587d-134f-4d8a-93e3-6cf0427a7853"
+      _loggerLevel: "error"
+      analytics: false
+    html:
+      end_with_newline: true
+      indent_inner_html: true
+    js:
+      brace_style: "end-expand"
+      break_chained_methods: true
+      end_with_comma: true
+      end_with_newline: true
+      indent_size: 2
+      jslint_happy: true
+      max_preserve_newlines: 3
+      space_after_anon_function: true
+      space_in_paren: true
+      wrap_line_length: 80
+    php: {}
   "atom-typescript": {}
   "autocomplete-plus":
     backspaceTriggersAutocomplete: true
@@ -51,12 +58,10 @@
       "language-objective-c"
       "language-perl"
       "language-python"
-      "language-ruby"
       "language-ruby-on-rails"
       "language-toml"
       "metrics"
       "release-notes"
-      "timecop"
       "welcome"
       "autosave"
       "language-drupal"
@@ -74,6 +79,16 @@
       "markdown-preview"
       "link"
       "symbols-view"
+      "jumpy"
+      "timecop"
+      "multirow-tabs"
+      "atom-grammar-test"
+    ]
+    excludeVcsIgnoredPaths: false
+    packagesWithKeymapsDisabled: [
+      "linter"
+      "linter-phpmd"
+      "atom-beautify"
     ]
     projectHome: "/Users/stevenwicher/Projects/"
     themes: [
@@ -89,11 +104,9 @@
   drupal:
     fileTypesPhp: "module,install,inc,test"
   editor:
-    fontSize: 13
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
-    softWrap: true
   "exception-reporting":
     userId: "eaf0b307-17a4-31b9-f9ff-333f83d90b57"
   "file-icons": {}
@@ -103,10 +116,12 @@
   jumpy:
     highContrast: true
   linter:
+    LintOnChange: true
+    LintOnSave: true
     errorPanelHeight: 213
     gutterPosition: "Left"
+    lintOnChangeInterval: 5000
     lintOnFly: false
-    showErrorPanel: false
     showErrorTabProject: false
     statusIconScope: "File"
   "linter-phpcs":
@@ -116,14 +131,21 @@
   minimap:
     plugins:
       "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
       pigments: true
+      pigmentsDecorationsZIndex: 0
       selection: true
+      selectionDecorationsZIndex: 0
+  pigments:
+    sortPaletteColors: "by color"
   "save-session":
     dataSaveFolder: "/Users/Steven.Wichers/.atom/packages/save-session/projects"
   "spell-check": {}
   "terminal-plus":
     core: {}
     style: {}
+  "tree-view":
+    hideVcsIgnoredFiles: false
   welcome:
     showOnStartup: false
   whitespace:
