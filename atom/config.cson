@@ -84,23 +84,23 @@
       "multirow-tabs"
       "atom-grammar-test"
     ]
-    excludeVcsIgnoredPaths: false
     packagesWithKeymapsDisabled: [
       "linter"
       "linter-phpmd"
       "atom-beautify"
     ]
     projectHome: "/Users/stevenwicher/Projects/"
+    telemetryConsent: "no"
     themes: [
       "seti-ui"
       "seti-syntax"
     ]
+    titleBar: "custom"
   docblockr:
     align_tags: "shallow"
     lower_case_primitives: true
     per_section_indent: true
     short_primitives: true
-    spacer_between_sections: true
   drupal:
     fileTypesPhp: "module,install,inc,test"
   editor:
@@ -140,6 +140,8 @@
     sortPaletteColors: "by color"
   "save-session":
     dataSaveFolder: "/Users/Steven.Wichers/.atom/packages/save-session/projects"
+  "seti-syntax": {}
+  "seti-ui": {}
   "spell-check": {}
   "terminal-plus":
     core: {}
