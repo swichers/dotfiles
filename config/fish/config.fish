@@ -1,5 +1,5 @@
 if type -P 'atom' > /dev/null
-  set -gx EDITOR 'atom'
+  set -gx EDITOR 'code'
 else
   set -gx EDITOR 'nano'
 end
@@ -13,6 +13,10 @@ set -gx GIT_MERGE_AUTOEDIT no
 
 set -g default_user steven.wichers
 
-set -gx PATH $HOME/.composer/vendor/bin /usr/local/bin /usr/local/sbin $PATH
+set -gx PATH $HOME/.composer/vendor/bin $HOME/.node/bin /usr/local/bin /usr/local/sbin $PATH
+set -gx NODE_PATH $HOME/.node/lib/node_modules $NODE_PATH
+set -gx MANPATH $HOME/.node/share/man $MANPATH
+
+alias grln git_release_notes
 
 . $HOME/.config/fish/config.local.fish
