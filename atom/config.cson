@@ -1,133 +1,15 @@
 "*":
-  achievements: {}
-  "activate-power-mode":
-    particles:
-      size:
-        max: 8
-      spawnCount:
-        max: 25
-      totalCount: {}
-    screenShake:
-      enabled: false
-  "atom-beautify":
-    css:
-      align_assignments: true
-      convert_quotes: "single"
-      newline_between_rules: true
-      no_lead_zero: true
-      selector_separator_newline: true
-    general:
-      _analyticsUserId: "e5a9587d-134f-4d8a-93e3-6cf0427a7853"
-      _loggerLevel: "error"
-      analytics: false
-    html:
-      end_with_newline: true
-      indent_inner_html: true
-    js:
-      brace_style: "end-expand"
-      break_chained_methods: true
-      end_with_comma: true
-      end_with_newline: true
-      indent_size: 2
-      jslint_happy: true
-      max_preserve_newlines: 3
-      space_after_anon_function: true
-      space_in_paren: true
-      wrap_line_length: 80
-    php: {}
-  "atom-typescript": {}
-  "autocomplete-plus":
-    backspaceTriggersAutocomplete: true
-    confirmCompletion: "enter"
-    defaultProvider: "Fuzzy"
-  "block-cursor":
-    global:
-      blinkOff:
-        borderStyle: "i-beam"
-      blinkOn:
-        borderStyle: "underline"
-  "color-tabs": {}
   core:
     disabledPackages: [
-      "language-clojure"
-      "language-c"
-      "language-csharp"
-      "language-go"
-      "language-java"
-      "language-mustache"
-      "language-objective-c"
-      "language-perl"
-      "language-python"
-      "language-ruby-on-rails"
-      "language-toml"
-      "metrics"
-      "release-notes"
-      "welcome"
-      "autosave"
-      "language-drupal"
-      "autocomplete-atom-api"
-      "about"
-      "archive-view"
-      "background-tips"
-      "deprecation-cop"
-      "exception-reporting"
-      "language-make"
-      "open-on-github"
-      "package-generator"
-      "styleguide"
-      "save-session"
-      "markdown-preview"
-      "link"
-      "symbols-view"
-      "jumpy"
-      "timecop"
-      "multirow-tabs"
-      "atom-grammar-test"
+      "language-gfm"
     ]
-    packagesWithKeymapsDisabled: [
-      "linter"
-      "linter-phpmd"
-      "atom-beautify"
-    ]
-    projectHome: "/Users/stevenwicher/Projects/"
     telemetryConsent: "no"
-    themes: [
-      "seti-ui"
-      "seti-syntax"
-    ]
-    titleBar: "custom"
-  docblockr:
-    align_tags: "shallow"
-    lower_case_primitives: true
-    per_section_indent: true
-    short_primitives: true
   drupal:
-    fileTypesPhp: "module,install,inc,test"
-  editor:
-    invisibles: {}
-    showIndentGuide: true
-    showInvisibles: true
+    fileTypesPhp: "module,install,inc,test,profile"
   "exception-reporting":
-    userId: "eaf0b307-17a4-31b9-f9ff-333f83d90b57"
-  "file-icons": {}
-  "highlight-line": {}
-  jshint:
-    validateOnlyOnSave: true
-  jumpy:
-    highContrast: true
-  linter:
-    LintOnChange: true
-    LintOnSave: true
-    errorPanelHeight: 213
-    gutterPosition: "Left"
-    lintOnChangeInterval: 5000
-    lintOnFly: false
-    showErrorTabProject: false
-    statusIconScope: "File"
-  "linter-phpcs":
-    codeStandardOrConfigFile: "Drupal"
-  "linter-phpmd":
-    projectRules: true
+    userId: "df1baf3b-2c89-4855-949a-8d9f424692f2"
+  "linter-ui-default":
+    panelHeight: 246
   minimap:
     plugins:
       "highlight-selected": true
@@ -136,19 +18,7 @@
       pigmentsDecorationsZIndex: 0
       selection: true
       selectionDecorationsZIndex: 0
-  pigments:
-    sortPaletteColors: "by color"
-  "save-session":
-    dataSaveFolder: "/Users/Steven.Wichers/.atom/packages/save-session/projects"
-  "seti-syntax": {}
-  "seti-ui": {}
-  "spell-check": {}
-  "terminal-plus":
-    core: {}
-    style: {}
   "tree-view":
-    hideVcsIgnoredFiles: false
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
-  whitespace:
-    ignoreWhitespaceOnCurrentLine: false
