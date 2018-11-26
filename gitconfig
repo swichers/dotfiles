@@ -37,7 +37,24 @@
 	detailtree = %C(yellow)%h %Cgreen%cr %C(bold blue)%cN%Creset -%C(yellow)%d%Creset %s
 	lprintfoutput = %h%x00%cd%x00%s%x00%an%x00%d
 	lgprintfoutput = %x00%h%x00%s%x00%cd%x00%an%x00%d
+        oneline2 = %C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(24,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D
+
 [push]
 	default = simple
 [include]
 	path = ~/.gitconfig_local
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
