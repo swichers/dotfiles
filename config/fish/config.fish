@@ -1,4 +1,4 @@
-if type -P 'atom' > /dev/null
+if type -P 'code' > /dev/null
   set -gx EDITOR 'code'
 else
   set -gx EDITOR 'nano'
