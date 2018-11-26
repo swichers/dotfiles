@@ -1,5 +1,5 @@
 [color]
-	ui = auto
+	ui = true
 [alias]
 	co = checkout
 	st = status -s
