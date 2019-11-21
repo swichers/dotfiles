@@ -1,16 +1,13 @@
 ---
--
-  clean: ['~', '~/.config/fish']
--
-  link:
-    ~/.dotfiles: ""
-    ~/.config/fish:
-      create: true
-      path: config/fish/
-    ~/.gitconfig: gitconfig
-    ~/.gitignore_global: gitignore_global
--
-  shell:
-    -
-      - "git submodule update --init --recursive --remote"
-      - "Installing/updating submodules"
+- clean: ['~', '~/.config/fish']
+
+- link:
+  ~/.dotfiles: ""
+  ~/.config/fish:
+    create: true
+    path: config/fish/
+  ~/.gitconfig: gitconfig
+  ~/.gitignore_global: gitignore_global
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
