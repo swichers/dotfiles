@@ -1,0 +1,65 @@
+#!/bin/bash
+
+system_type=$(uname -s)
+
+if [ "$system_type" = "Darwin" ]; then
+
+  if [ -d "$~/.config/fonts/" ]; then
+     cp ~/.config/fonts/*.ttf /Library/Fonts/
+  fi
+
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    curl -fsSL https://raw.github.com/rcmdnk/homebrew-file/install/install.sh |sh
+  fi
+
+  if ! command -v exa >/dev/null 2>&1; then
+    echo "Installing Exa"
+    brew install exa
+  fi
+
+  if ! command -v diff-so-fancy >/dev/null 2>&1; then
+    echo "Installing Diff-So-Fancy"
+    brew install diff-so-fancy
+  fi
+
+  if ! command -v fish >/dev/null 2>&1; then
+    brew install fish
+  fi
+
+elif [ "$system_type" = "Linux" ]; then
+
+  if ! command -v exa >/dev/null 2>&1; then
+    echo "Installing Exa"
+    sudo wget -O /tmp/exa-linux-x86_64-0.9.0.zip https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip &&
+    unzip /tmp/exa-linux-x86_64-0.9.0.zip -d /usr/local/bin/ && \
+    rm /tmp/exa-linux-x86_64-0.9.0.zip && \
+    mv /usr/local/bin/exa-linux-x86_64 /usr/local/bin/exa && \
+    chmod a+x /usr/local/bin/exa
+
+    sudo wget -O /usr/local/man/exa.1 https://raw.githubusercontent.com/ogham/exa/master/contrib/man/exa.1
+
+    sudo mkdir -p /usr/share/fish/
+    sudo wget -O /usr/share/fish/completions.fish https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.fish
+  fi
+
+  if ! command -v diff-so-fancy >/dev/null 2>&1; then
+    echo "Installing Diff So Fancy"
+    sudo wget -O /usr/local/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && \
+    chmod a+x /usr/local/bin/diff-so-fancy
+  fi
+
+  if ! command -v fish >/dev/null 2>&1; then
+    echo "Installing Fish Shell"
+    sudo apt-add-repository -y ppa:fish-shell/release-3 && \
+    apt-get -y update && \
+    apt-get -y install fish
+  fi
+
+fi
+
+if command -v fish >/dev/null 2>&1; then
+  echo "Setting Fish as default shell"
+  echo `which fish` | sudo tee -a /etc/shells
+  chsh -s `which fish`
+fi

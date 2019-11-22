@@ -1,0 +1,10 @@
+*~
+.DS_Store
+*.scssc
+*.bak
+*.tmp
+*.old
+*.orig
+*.rej
+.idea/
+.sql
