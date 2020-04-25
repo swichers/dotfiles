@@ -23,3 +23,19 @@ set -gx MANPATH $HOME/.node/share/man $MANPATH
 if test -e $HOME/.config/fish/config.local.fish
   . $HOME/.config/fish/config.local.fish
 end
+
+if type -q exa
+  alias ls='exa'
+end
+
+if type -q catbat
+  alias cat='catbat'
+end
+
+if type -q tldr
+  alias help='tldr'
+end
+
+if type -q prettyping
+  alias ping='prettyping --nolegend'
+end
