@@ -38,7 +38,6 @@
     whitespace = space-before-tab,tab-in-indent,trailing-space,cr-at-eol
     sharedrepository = 1
     editor = nano
-    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [diff]
     renames = copies
@@ -79,7 +78,7 @@
     default = simple
 
 [include]
-    path = ~/.gitconfig_local
+    path = ~/.gitconfig.local
 
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
