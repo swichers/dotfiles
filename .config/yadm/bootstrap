@@ -65,10 +65,10 @@ elif [ "$system_type" = "Linux" ]; then
 
 fi
 
-if command -v fish >/dev/null 2>&1; then
+if command -v fish >/dev/null 2>&1 && [ `command -v fish` != "${SHELL}" ]; then
   echo "Setting Fish as default shell"
-  echo `which fish` | sudo tee -a /etc/shells
-  chsh -s `which fish`
+  grep -q `command -v fish` /etc/shells || command -v fish | sudo tee -a /etc/shells >/dev/null
+  chsh -s `command -v fish`
 fi
 
 if command -v diff-so-fancy >/dev/null 2>&1; then
