@@ -31,7 +31,7 @@
 
 [core]
     compression = 9
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore.global
     filemode = false
     eol = lf
     autocrlf = input
