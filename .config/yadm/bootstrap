@@ -23,6 +23,19 @@ if [ "$system_type" = "Darwin" ]; then
 
 elif [ "$system_type" = "Linux" ]; then
 
+  for CMD in tldr prettyping ack jq unzip
+  do
+    if ! command -v "${CMD}" >/dev/null 2>&1; then
+      echo "Installing ${CMD}"
+      sudo apt -y install "${CMD}"
+    fi
+  done
+
+  if ! command -v http >/dev/null 2>&1; then
+    echo "Installing httpie"
+    sudo apt install http
+  fi
+
   if ! command -v exa >/dev/null 2>&1; then
     echo "Installing Exa"
     sudo wget -O /tmp/exa-linux-x86_64-0.9.0.zip https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip &&
@@ -46,17 +59,9 @@ elif [ "$system_type" = "Linux" ]; then
   if ! command -v fish >/dev/null 2>&1; then
     echo "Installing Fish Shell"
     sudo apt-add-repository -y ppa:fish-shell/release-3 && \
-    apt-get -y update && \
-    apt-get -y install fish
+    apt -y update && \
+    apt -y install fish
   fi
-
-  for CMD in tldr prettyping ack jq httpie
-  do
-    if ! command -v "${CMD}" >/dev/null 2>&1; then
-      echo "Installing ${CMD}"
-      sudo apt-get -y install "${CMD}"
-    fi
-  done
 
 fi
 
