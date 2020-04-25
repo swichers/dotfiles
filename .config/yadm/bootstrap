@@ -13,19 +13,13 @@ if [ "$system_type" = "Darwin" ]; then
     curl -fsSL https://raw.github.com/rcmdnk/homebrew-file/install/install.sh |sh
   fi
 
-  if ! command -v exa >/dev/null 2>&1; then
-    echo "Installing Exa"
-    brew install exa
-  fi
-
-  if ! command -v diff-so-fancy >/dev/null 2>&1; then
-    echo "Installing Diff-So-Fancy"
-    brew install diff-so-fancy
-  fi
-
-  if ! command -v fish >/dev/null 2>&1; then
-    brew install fish
-  fi
+  for CMD in exa diff-so-fancy fish tldr prettyping ack jq httpie
+  do
+    if ! command -v "${CMD}" >/dev/null 2>&1; then
+      echo "Installing ${CMD}"
+      brew install "${CMD}"
+    fi
+  done
 
 elif [ "$system_type" = "Linux" ]; then
 
@@ -55,6 +49,14 @@ elif [ "$system_type" = "Linux" ]; then
     apt-get -y update && \
     apt-get -y install fish
   fi
+
+  for CMD in tldr prettyping ack jq httpie
+  do
+    if ! command -v "${CMD}" >/dev/null 2>&1; then
+      echo "Installing ${CMD}"
+      sudo apt-get -y install "${CMD}"
+    fi
+  done
 
 fi
 
