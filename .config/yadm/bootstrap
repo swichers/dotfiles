@@ -23,7 +23,7 @@ if [ "$system_type" = "Darwin" ]; then
 
 elif [ "$system_type" = "Linux" ]; then
 
-  for CMD in tldr prettyping ack jq unzip
+  for CMD in tldr prettyping ack jq unzip php sqlite
   do
     if ! command -v "${CMD}" >/dev/null 2>&1; then
       echo "Installing ${CMD}"
@@ -33,7 +33,7 @@ elif [ "$system_type" = "Linux" ]; then
 
   if ! command -v http >/dev/null 2>&1; then
     echo "Installing httpie"
-    sudo apt install http
+    sudo apt -y install httpie
   fi
 
   if ! command -v exa >/dev/null 2>&1; then
@@ -63,6 +63,19 @@ elif [ "$system_type" = "Linux" ]; then
     apt -y install fish
   fi
 
+  if ! command -v composer >/dev/null 2>&1; then
+    wget https://getcomposer.org/installer -O - -q | php -- --quiet
+    sudo mv composer.phar /usr/local/bin/composer && \
+      chmod a+x,g+w /usr/local/bin/composer
+  fi
+
+  for PHP_PACKAGE in curl intl xml mbstring mysql xdebug sqlite3
+  do
+    if ! php -m | grep -q "${PHP_PACKAGE}"; then
+      sudo apt -y install "php-${PHP_PACKAGE}"
+    fi
+  done
+
 fi
 
 if command -v fish >/dev/null 2>&1 && [ `command -v fish` != "${SHELL}" ]; then
@@ -74,3 +87,11 @@ fi
 if command -v diff-so-fancy >/dev/null 2>&1; then
   git config --file ~/.gitconfig.local core.pager "diff-so-fancy | less --tabs=4 -RFX"
 fi
+
+for PACKAGE in "hirak/prestissimo" "squizlabs/php_codesniffer" "friendsofphp/php-cs-fixer" "ergebnis/composer-normalize" "dealerdirect/phpcodesniffer-composer-installer" "phpmd/phpmd"
+do
+  if ! composer global info "${PACKAGE}" >/dev/null 2>&1; then
+    echo "Installing ${PACKAGE}"
+    composer global require --dev "${PACKAGE}"
+  fi
+done
