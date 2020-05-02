@@ -28,8 +28,8 @@ if type -q exa
   alias ls='exa'
 end
 
-if type -q catbat
-  alias cat='catbat'
+if type -q batcat
+  alias cat='batcat'
 end
 
 if type -q tldr
