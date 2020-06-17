@@ -2,6 +2,12 @@
 
 system_type=$(uname -s)
 
+# Install composer if it's not installed.
+if ! command -v composer >/dev/null 2>&1; then
+  curl https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin
+fi
+
+# macOS
 if [ "$system_type" = "Darwin" ]; then
 
   if [ -d "$~/.config/fonts/" ]; then
@@ -15,9 +21,17 @@ if [ "$system_type" = "Darwin" ]; then
 
   for CMD in exa diff-so-fancy fish tldr prettyping ack jq httpie
   do
-    if ! command -v "${CMD}" >/dev/null 2>&1; then
+    if ! brew info "${CMD}" >/dev/null 2>&1; then
       echo "Installing ${CMD}"
       brew install "${CMD}"
+    fi
+  done
+
+  for CMD in lastpass aerial diffmerge discord docker flux grammarly iterm2 licecap macdown meld muzzle phpstorm skitch slack sourcetree rectangle spotify tableplus typora visual-studio-code vlc
+  do
+    if ! brew cask list "${CMD}" >/dev/null 2>&1; then
+      echo "Installing ${CMD}"
+      brew cask install "${CMD}"
     fi
   done
 
