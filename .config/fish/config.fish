@@ -32,6 +32,10 @@ if type -q batcat
   alias cat='batcat'
 end
 
+if type -q bat
+  alias cat='bat'
+end
+
 if type -q tldr
   alias help='tldr'
 end
