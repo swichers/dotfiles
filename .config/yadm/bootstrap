@@ -10,8 +10,8 @@ fi
 # macOS
 if [ "$system_type" = "Darwin" ]; then
 
-  if [ -d "$~/.config/fonts/" ]; then
-     cp ~/.config/fonts/*.ttf /Library/Fonts/
+  if [ -d "${HOME}/.config/fonts/" ]; then
+     cp -n ~/.config/fonts/*.ttf /Library/Fonts/
   fi
 
   if ! command -v brew >/dev/null 2>&1; then
