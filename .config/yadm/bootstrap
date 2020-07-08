@@ -114,3 +114,7 @@ do
     composer global require --dev "${PACKAGE}"
   fi
 done
+
+if ! command -v ads >/dev/null 2>&1; then
+  curl https://downloads.acquia.studio/install-standalone.sh | bash
+fi
