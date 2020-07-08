@@ -19,15 +19,15 @@ if [ "$system_type" = "Darwin" ]; then
     curl -fsSL https://raw.github.com/rcmdnk/homebrew-file/install/install.sh |sh
   fi
 
-  for CMD in exa diff-so-fancy fish tldr prettyping ack jq httpie
+  for CMD in exa bat diff-so-fancy fish tldr prettyping ack jq httpie tmux
   do
-    if ! brew info "${CMD}" >/dev/null 2>&1; then
+    if ! brew list "${CMD}" >/dev/null 2>&1; then
       echo "Installing ${CMD}"
       brew install "${CMD}"
     fi
   done
 
-  for CMD in lastpass aerial diffmerge discord docker flux grammarly iterm2 licecap macdown meld muzzle phpstorm skitch slack sourcetree rectangle spotify tableplus typora visual-studio-code vlc
+  for CMD in lastpass aerial diffmerge discord flux grammarly iterm2 licecap macdown meld muzzle phpstorm skitch slack sourcetree rectangle spotify tableplus typora visual-studio-code vlc lando vagrant virtualbox
   do
     if ! brew cask list "${CMD}" >/dev/null 2>&1; then
       echo "Installing ${CMD}"
@@ -35,9 +35,14 @@ if [ "$system_type" = "Darwin" ]; then
     fi
   done
 
+  if ! command -v travis >/dev/null 2>&1; then
+    echo "Installing Travis CLI."
+    gem install travis --no-document --user-install
+  fi
+
 elif [ "$system_type" = "Linux" ]; then
 
-  for CMD in tldr prettyping ack jq unzip php sqlite
+  for CMD in tldr prettyping ack jq unzip php sqlite tmux
   do
     if ! command -v "${CMD}" >/dev/null 2>&1; then
       echo "Installing ${CMD}"
