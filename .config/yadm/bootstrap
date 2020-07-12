@@ -88,7 +88,7 @@ elif [ "$system_type" = "Linux" ]; then
       chmod a+x,g+w /usr/local/bin/composer
   fi
 
-  for PHP_PACKAGE in curl intl xml mbstring mysql xdebug sqlite3
+  for PHP_PACKAGE in curl intl xml mbstring mysql xdebug sqlite3 gd zip
   do
     if ! php -m | grep -q "${PHP_PACKAGE}"; then
       sudo apt -y install "php-${PHP_PACKAGE}"
