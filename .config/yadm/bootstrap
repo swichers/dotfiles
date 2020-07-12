@@ -107,7 +107,7 @@ if command -v diff-so-fancy >/dev/null 2>&1; then
   git config --file ~/.gitconfig.local core.pager "diff-so-fancy | less --tabs=4 -RFX"
 fi
 
-for PACKAGE in "hirak/prestissimo" "squizlabs/php_codesniffer" "friendsofphp/php-cs-fixer" "ergebnis/composer-normalize" "dealerdirect/phpcodesniffer-composer-installer" "phpmd/phpmd"
+for PACKAGE in "hirak/prestissimo" "squizlabs/php_codesniffer" "friendsofphp/php-cs-fixer" "ergebnis/composer-normalize" "dealerdirect/phpcodesniffer-composer-installer" "phpmd/phpmd" "laravel/installer"
 do
   if ! composer global info "${PACKAGE}" >/dev/null 2>&1; then
     echo "Installing ${PACKAGE}"
