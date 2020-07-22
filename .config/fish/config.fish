@@ -15,7 +15,7 @@ set -gx GIT_MERGE_AUTOEDIT no
 
 set -g default_user steven.wichers
 
-set -gx PATH $HOME/.composer/vendor/bin $HOME/.node/bin /usr/local/bin /usr/local/sbin $PATH
+set -gx PATH $HOME/.composer/vendor/bin $HOME/.node/bin $HOME/.gem/ruby/2.6.0/bin /usr/local/bin /usr/local/sbin $PATH
 set -gx PATH $HOME/.symfony/bin $PATH
 set -gx NODE_PATH $HOME/.node/lib/node_modules $NODE_PATH
 set -gx MANPATH $HOME/.node/share/man $MANPATH
@@ -42,4 +42,8 @@ end
 
 if type -q prettyping
   alias ping='prettyping --nolegend'
+end
+
+if type -q nvm
+  nvm use default
 end

@@ -44,6 +44,7 @@ if ! command -v fish >/dev/null 2>&1; then
 fi
 
 if ! command -v composer >/dev/null 2>&1; then
+  echo "Installing composer."
   wget https://getcomposer.org/installer -O - -q | php -- --quiet
   sudo mv composer.phar /usr/local/bin/composer && \
     chmod a+x,g+w /usr/local/bin/composer
