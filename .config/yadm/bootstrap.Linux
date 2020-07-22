@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-APT_PACKAGES=("tldr" "prettyping" "ack" "jq" "unzip" "php" "sqlite" "tmux")
-PHP_PACKAGES=("curl" "intl" "xml" "mbstring" "mysql" "xdebug" "sqlite3" "gd" "zip")
+declare -a APT_PACKAGES=("tldr" "prettyping" "ack" "jq" "unzip" "php" "sqlite" "tmux")
+declare -a PHP_PACKAGES=("curl" "intl" "xml" "mbstring" "mysql" "xdebug" "sqlite3" "gd" "zip")
 
-for CMD in $APT_PACKAGES
+for CMD in "${APT_PACKAGES[@]}"
 do
   if ! command -v "${CMD}" >/dev/null 2>&1; then
     echo "Installing ${CMD}"
@@ -50,7 +50,7 @@ if ! command -v composer >/dev/null 2>&1; then
     chmod a+x,g+w /usr/local/bin/composer
 fi
 
-for PHP_PACKAGE in $PHP_PACKAGES
+for PHP_PACKAGE in "${PHP_PACKAGES[@]}"
 do
   if ! php -m | grep -q "${PHP_PACKAGE}"; then
     sudo apt -y install "php-${PHP_PACKAGE}"

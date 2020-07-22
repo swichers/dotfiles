@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-COMPOSER_PACKAGES=("hirak/prestissimo" "squizlabs/php_codesniffer" "friendsofphp/php-cs-fixer" "ergebnis/composer-normalize" "dealerdirect/phpcodesniffer-composer-installer" "phpmd/phpmd" "laravel/installer")
-VAGRANT_PLUGINS=("exec", "hostsupdater", "vbguest", "cachier")
+declare -a COMPOSER_PACKAGES=("hirak/prestissimo" "squizlabs/php_codesniffer" "friendsofphp/php-cs-fixer" "ergebnis/composer-normalize" "dealerdirect/phpcodesniffer-composer-installer" "phpmd/phpmd" "laravel/installer")
+declare -a VAGRANT_PLUGINS=("exec" "hostsupdater" "vbguest" "cachier")
 
 system_type=$(uname -s)
 
@@ -10,7 +10,7 @@ if ! command -v composer >/dev/null 2>&1; then
   curl https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin
 fi
 
-for PACKAGE in $COMPOSER_PACKAGES; do
+for PACKAGE in "${COMPOSER_PACKAGES[@]}"; do
   if ! composer global info "${PACKAGE}" >/dev/null 2>&1; then
     echo "Installing ${PACKAGE}"
     composer global require --dev "${PACKAGE}"
@@ -52,8 +52,8 @@ if [ ! -f "${HOME}/.nvm/nvm.sh" ]; then
 fi
 
 if command -v vagrant >/dev/null 2>&1; then
-  for PLUGIN in $VAGRANT_PLUGINS; do
-    if ! vagrant plugin list | grep "vagrant-${PLUGIN}"; then
+  for PLUGIN in "${VAGRANT_PLUGINS[@]}"; do
+    if ! vagrant plugin list | grep "vagrant-${PLUGIN}" >/dev/null 2>&1; then
       vagrant plugin install "vagrant-${PLUGIN}"
     fi
   done
