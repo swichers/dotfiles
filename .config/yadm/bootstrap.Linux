@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+APT_PACKAGES=("tldr" "prettyping" "ack" "jq" "unzip" "php" "sqlite" "tmux")
+PHP_PACKAGES=("curl" "intl" "xml" "mbstring" "mysql" "xdebug" "sqlite3" "gd" "zip")
+
+for CMD in $APT_PACKAGES
+do
+  if ! command -v "${CMD}" >/dev/null 2>&1; then
+    echo "Installing ${CMD}"
+    sudo apt -y install "${CMD}"
+  fi
+done
+
+if ! command -v http >/dev/null 2>&1; then
+  echo "Installing httpie"
+  sudo apt -y install httpie
+fi
+
+if ! command -v exa >/dev/null 2>&1; then
+  echo "Installing Exa"
+  sudo wget -O /tmp/exa-linux-x86_64-0.9.0.zip https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip &&
+  unzip /tmp/exa-linux-x86_64-0.9.0.zip -d /usr/local/bin/ && \
+  rm /tmp/exa-linux-x86_64-0.9.0.zip && \
+  mv /usr/local/bin/exa-linux-x86_64 /usr/local/bin/exa && \
+  chmod a+x /usr/local/bin/exa
+
+  sudo wget -O /usr/local/man/exa.1 https://raw.githubusercontent.com/ogham/exa/master/contrib/man/exa.1
+
+  sudo mkdir -p /usr/share/fish/
+  sudo wget -O /usr/share/fish/completions.fish https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.fish
+fi
+
+if ! command -v diff-so-fancy >/dev/null 2>&1; then
+  echo "Installing Diff So Fancy"
+  sudo wget -O /usr/local/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && \
+  chmod a+x /usr/local/bin/diff-so-fancy
+fi
+
+if ! command -v fish >/dev/null 2>&1; then
+  echo "Installing Fish Shell"
+  sudo apt-add-repository -y ppa:fish-shell/release-3 && \
+  apt -y update && \
+  apt -y install fish
+fi
+
+if ! command -v composer >/dev/null 2>&1; then
+  wget https://getcomposer.org/installer -O - -q | php -- --quiet
+  sudo mv composer.phar /usr/local/bin/composer && \
+    chmod a+x,g+w /usr/local/bin/composer
+fi
+
+for PHP_PACKAGE in $PHP_PACKAGES
+do
+  if ! php -m | grep -q "${PHP_PACKAGE}"; then
+    sudo apt -y install "php-${PHP_PACKAGE}"
+  fi
+done
