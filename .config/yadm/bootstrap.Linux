@@ -11,6 +11,13 @@ do
   fi
 done
 
+if ! command -v gh >/dev/null 2>&1; then
+    echo "Installing GitHub CLI"
+    sudo wget -O /tmp/gh_cli.deb https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_amd64.deb && \
+    sudo apt install /tmp/gh_cli.deb && \
+    sudo rm /tmp/gh_cli.deb
+fi
+
 if ! command -v http >/dev/null 2>&1; then
   echo "Installing httpie"
   sudo apt -y install httpie
