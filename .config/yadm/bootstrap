@@ -32,6 +32,7 @@ fi
 if ! command -v ads >/dev/null 2>&1; then
   echo "Installing ads."
   curl https://downloads.acquia.studio/install-standalone.sh | bash
+  ads telemetry -n
 fi
 
 if ! command -v drush >/dev/null 2>&1; then
