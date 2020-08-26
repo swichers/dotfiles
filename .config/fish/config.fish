@@ -20,6 +20,8 @@ set -gx PATH $HOME/.symfony/bin $PATH
 set -gx NODE_PATH $HOME/.node/lib/node_modules $NODE_PATH
 set -gx MANPATH $HOME/.node/share/man $MANPATH
 
+eval (gh completion -s fish)
+
 if test -e $HOME/.config/fish/config.local.fish
   . $HOME/.config/fish/config.local.fish
 end
