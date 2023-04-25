@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-declare -a APT_PACKAGES=("tldr" "prettyping" "ack" "jq" "unzip" "php" "sqlite" "tmux")
-declare -a PHP_PACKAGES=("curl" "intl" "xml" "mbstring" "mysql" "xdebug" "sqlite3" "gd" "zip")
+declare -a APT_PACKAGES=("tldr" "prettyping" "ack" "jq" "unzip" "php" "sqlite" "tmux" "bat")
+declare -a PHP_PACKAGES=("curl" "intl" "xml" "mbstring" "mysql" "xdebug" "sqlite3" "gd" "zip" "http")
 
 for CMD in "${APT_PACKAGES[@]}"
 do
