@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -a APT_PACKAGES=("tldr" "prettyping" "ack" "jq" "unzip" "php" "sqlite" "tmux" "bat")
+declare -a APT_PACKAGES=("tldr" "prettyping" "ack" "jq" "unzip" "php-cli" "sqlite" "tmux" "bat" "httpie" "exa" "fish" "gh")
 declare -a PHP_PACKAGES=("curl" "intl" "xml" "mbstring" "mysql" "xdebug" "sqlite3" "gd" "zip" "http")
 
 for CMD in "${APT_PACKAGES[@]}"
@@ -18,35 +18,9 @@ do
   fi
 done
 
-if ! command -v fish >/dev/null 2>&1; then
-  echo "Installing Fish Shell"
-  sudo apt-add-repository -y ppa:fish-shell/release-3 && \
-  sudo apt -y update && \
-  sudo apt -y install fish
-fi
-
-if ! command -v gh >/dev/null 2>&1; then
-  echo "Installing GitHub CLI"
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0 && \
-  sudo apt-add-repository https://cli.github.com/packages && \
-  sudo apt -y update && \
-  sudo apt -y install gh
-fi
-
-if ! command -v http >/dev/null 2>&1; then
-  echo "Installing httpie"
-  sudo apt -y install httpie
-fi
-
-if ! command -v exa >/dev/null 2>&1; then
-  echo "Installing Exa"
-  sudo apt -y install exa
-fi
-
 if ! command -v diff-so-fancy >/dev/null 2>&1; then
   echo "Installing Diff So Fancy"
-  wget -O /usr/local/bin/diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && \
-  chmod a+x /usr/local/bin/diff-so-fancy
+  sudo snap install diff-so-fancy
 fi
 
 if ! command -v composer >/dev/null 2>&1; then
