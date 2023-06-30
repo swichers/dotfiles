@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 declare -a COMPOSER_PACKAGES=("squizlabs/php_codesniffer" "friendsofphp/php-cs-fixer" "ergebnis/composer-normalize" "dealerdirect/phpcodesniffer-composer-installer" "phpmd/phpmd" "laravel/installer")
-declare -a VAGRANT_PLUGINS=("exec" "hostsupdater" "vbguest" "cachier")
 
 system_type=$(uname -s)
 
@@ -29,12 +28,6 @@ if command -v diff-so-fancy >/dev/null 2>&1; then
   git config --file ~/.gitconfig.local core.pager "diff-so-fancy | less --tabs=4 -RFX"
 fi
 
-if ! command -v drush >/dev/null 2>&1; then
-  echo "Installing drush launcher."
-  sudo wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar && \
-  chmod a+x /usr/local/bin/drush
-fi
-
 if [ ! -d "${HOME}/.vim_runtime" ]; then
   echo "Installimg vimrc changes."
   git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
@@ -44,18 +37,4 @@ fi
 if [ ! -f "${HOME}/.nvm/nvm.sh" ]; then
   echo "Installing nvm"
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-fi
-
-if command -v vagrant >/dev/null 2>&1; then
-  for PLUGIN in "${VAGRANT_PLUGINS[@]}"; do
-    if ! vagrant plugin list | grep "vagrant-${PLUGIN}" >/dev/null 2>&1; then
-      vagrant plugin install "vagrant-${PLUGIN}"
-    fi
-  done
-fi
-
-if ! command -v drush >/dev/null 2>&1; then
-  echo "Installing drush launcher."
-  wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/latest/download/drush.phar && \
-  chmod a+x /usr/local/bin/drush
 fi
